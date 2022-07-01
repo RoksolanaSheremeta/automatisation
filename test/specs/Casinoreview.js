@@ -8,83 +8,83 @@ describe('Gamblizard For "Casino review page"', () => {
         await browser.setWindowSize(1552, 840);
     });
 
-    it('Test 1: Check to Have Title', async () => {
-        await browser.getTitle();
-        await expect(browser).toHaveTitle('Latest Magical Vegas Bonus Codes for UK Users | What’s New in June 2022');
-    });
+    // it('Test 1: Check to Have Title', async () => {
+    //     await browser.getTitle();
+    //     await expect(browser).toHaveTitle('Latest Magical Vegas Bonus Codes for UK Users | What’s New in June 2022');
+    // });
 
-    it('Test 2: Canonical',async () => {
-        const canonical = await browser.$("link[rel='canonical']");
-        const canonicalUrl = await canonical.getAttribute('href');
-        assert.strictEqual(canonicalUrl, 'https://gamblizard.com/casinos/magical-vegas-bonus/');
-    });
+    // it('Test 2: Canonical',async () => {
+    //     const canonical = await browser.$("link[rel='canonical']");
+    //     const canonicalUrl = await canonical.getAttribute('href');
+    //     assert.strictEqual(canonicalUrl, 'https://gamblizard.com/casinos/magical-vegas-bonus/');
+    // });
 
-    it('Test 3: Check Canonical should be only one', async () => {
-        const canonAmount = await $$("link[rel='canonical']");
-    });
+    // it('Test 3: Check Canonical should be only one', async () => {
+    //     const canonAmount = await $$("link[rel='canonical']");
+    // });
 
-    it('Test 4: Check of Description', async () => {
-        const description = await $("meta[name='description']");
-        const descLength = await description.getAttribute('content');
-    });
+    // it('Test 4: Check of Description', async () => {
+    //     const description = await $("meta[name='description']");
+    //     const descLength = await description.getAttribute('content');
+    // });
     
-    it('Test 5: Check URL logo', async () => {
-        const logoUrl = await $("/html/body/header/div/div/a/img");
-        let logoUrlGetAtr = await logoUrl.getAttribute('href');
-    });
+    // it('Test 5: Check URL logo', async () => {
+    //     const logoUrl = await $("/html/body/header/div/div/a/img");
+    //     let logoUrlGetAtr = await logoUrl.getAttribute('href');
+    // });
 
-    it('Test 6: Check alt for URL logo', () => {
-        browser.url('https://gamblizard.com/casinos/magical-vegas-bonus/');
-        const altLogo = $('document.querySelector("body > header > div > div > a")');
-        expect(altLogo).toHaveAttr('alt')
-    });
+    // it('Test 6: Check alt for URL logo', () => {
+    //     browser.url('https://gamblizard.com/casinos/magical-vegas-bonus/');
+    //     const altLogo = $('document.querySelector("body > header > div > div > a")');
+    //     expect(altLogo).toHaveAttr('alt')
+    // });
 
-    it('Test 7: Check H1 on page', () => {
-        const h1 = $('input')
-        expect(h1).toHaveAttribute('h1 class')
-    });
+    // it('Test 7: Check H1 on page', () => {
+    //     const h1 = $('input')
+    //     expect(h1).toHaveAttribute('h1 class')
+    // });
 
-    it('Test 9: Logo redirection', async () => {
-        const logoredirection = await browser.$('body > header > div > div > a');
-        await logoredirection.click();
-        const logoredirectionUrlExp = await expect(browser);
-        await logoredirectionUrlExp.toHaveUrl('https://gamblizard.com/');
-    });
+    // it('Test 9: Logo redirection', async () => {
+    //     const logoredirection = await browser.$('body > header > div > div > a');
+    //     await logoredirection.click();
+    //     const logoredirectionUrlExp = await expect(browser);
+    //     await logoredirectionUrlExp.toHaveUrl('https://gamblizard.com/');
+    // });
 
-    it('Test 10: Check Main menu', async () => {
-        const NoDepositBonuses = await $("/html/body/header/div/div/div/nav/ul/li[1]/a");
-        expect(NoDepositBonuses).toHaveTextContaining('No Deposit Bonuses')
+    // it('Test 10: Check Main menu', async () => {
+    //     const NoDepositBonuses = await $("/html/body/header/div/div/div/nav/ul/li[1]/a");
+    //     expect(NoDepositBonuses).toHaveTextContaining('No Deposit Bonuses')
 
-        const FreeSpins = await $('/html/body/header/div/div/div/nav/ul/li[2]/a');
-        expect(FreeSpins).toHaveTextContaining('Free Spins')
+    //     const FreeSpins = await $('/html/body/header/div/div/div/nav/ul/li[2]/a');
+    //     expect(FreeSpins).toHaveTextContaining('Free Spins')
 
-        const DepositBonuses = await $('/html/body/header/div/div/div/nav/ul/li[3]/a');
-        expect(DepositBonuses).toHaveTextContaining('Deposit Bonuses')
+    //     const DepositBonuses = await $('/html/body/header/div/div/div/nav/ul/li[3]/a');
+    //     expect(DepositBonuses).toHaveTextContaining('Deposit Bonuses')
 
-        const QualityCasinos = await $('/html/body/header/div/div/div/nav/ul/li[4]/a');
-        expect(QualityCasinos).toHaveTextContaining('Quality Casinos')
+    //     const QualityCasinos = await $('/html/body/header/div/div/div/nav/ul/li[4]/a');
+    //     expect(QualityCasinos).toHaveTextContaining('Quality Casinos')
 
-        const Slots = await $('/html/body/header/div/div/div/nav/ul/li[5]/a');
-        expect(Slots).toHaveTextContaining('Slots')
-    });
+    //     const Slots = await $('/html/body/header/div/div/div/nav/ul/li[5]/a');
+    //     expect(Slots).toHaveTextContaining('Slots')
+    // });
 
-    it('Test 11: No Deposit Bonuses redirect button in menu',  async () => {
-        const NoDepositBons = await browser.$('body > header > div > div > div > ul > li:nth-child(1) > a');
-        await NoDepositBons.click();
-        const NoDepositBonsSub = await browser.$('body > header > div > div > div > ul > li.menu__item.menu__item--children.menu__item--children-js.active > div > div.sub-menu__title > a');
-        await NoDepositBonsSub.click();
-        await expect(browser).toHaveUrl('https://gamblizard.com/no-deposit-bonuses/');
-        await expect( await browser.$('body > section.firstscreen-count > div > div > h1')).toHaveText('Latest No Deposit Casino Bonuses');
-    });
+    // it('Test 11: No Deposit Bonuses redirect button in menu',  async () => {
+    //     const NoDepositBons = await browser.$('body > header > div > div > div > ul > li:nth-child(1) > a');
+    //     await NoDepositBons.click();
+    //     const NoDepositBonsSub = await browser.$('body > header > div > div > div > ul > li.menu__item.menu__item--children.menu__item--children-js.active > div > div.sub-menu__title > a');
+    //     await NoDepositBonsSub.click();
+    //     await expect(browser).toHaveUrl('https://gamblizard.com/no-deposit-bonuses/');
+    //     await expect(await browser.$('body > section.firstscreen-count > div > div > h1')).toHaveText('Latest No Deposit Casino Bonuses');
+    // });
 
-    it('Test 12: Tool in header NAV redirection of drop-down list',  async () => {
-        const NoDepositBons = await browser.$('body > header > div > div > div > ul > li:nth-child(1) > a');
-        await NoDepositBons.click();
-        const CouponCodes = await browser.$('body > header > div > div > div > ul > li.menu__item.menu__item--children.menu__item--children-js.active > div > div.sub-menu__inner > div:nth-child(1) > div > ul > li:nth-child(5) > a');
-        await CouponCodes.click();
-        await expect(browser).toHaveUrl('https://gamblizard.com/no-deposit-bonuses/bonus-codes/');
-        await expect( await browser.$('body > section.firstscreen-count > div > div > h1')).toHaveText('The List of Newest No Deposit Casino Bonus Codes');
-    });
+    // it('Test 12: Tool in header NAV redirection of drop-down list',  async () => {
+    //     const NoDepositBons = await browser.$('body > header > div > div > div > ul > li:nth-child(1) > a');
+    //     await NoDepositBons.click();
+    //     const CouponCodes = await browser.$('body > header > div > div > div > ul > li.menu__item.menu__item--children.menu__item--children-js.active > div > div.sub-menu__inner > div:nth-child(1) > div > ul > li:nth-child(5) > a');
+    //     await CouponCodes.click();
+    //     await expect(browser).toHaveUrl('https://gamblizard.com/no-deposit-bonuses/bonus-codes/');
+    //     await expect( await browser.$('body > section.firstscreen-count > div > div > h1')).toHaveText('The List of Newest No Deposit Casino Bonus Codes');
+    // });
 
     // it('Test 13: Search in the header NAV', async () =>  {
     //     const searchInput = await browser.$('.search-form__input-js');
@@ -119,23 +119,45 @@ describe('Gamblizard For "Casino review page"', () => {
     //     await expect(searchEmptyResult).toBeDisplayed();
     // });
 
-    it('Test 16: Breadcrubs works', async () => {
-        const Breadcrubs = await browser.$('span > span:nth-child(3) > a');
-        await Breadcrubs.click();
-        await expect(browser).toHaveUrl('https://gamblizard.com/casinos/');
-        const pageOfSearch = await browser.$('div.casinos-tmp.casinos-tmp--js > div > h1');
-        await expect(pageOfSearch).toHaveText('Online Casino Index: UKGC Online Casinos Directory');
-    });
-
-    it('Test 17: Deals available block',  async () => {
-        const Dealsavailable = await browser.$('body > section.firstscreen-casino > div > div > div.firstscreen-casino__info > p');
-        await expect(Dealsavailable).toBeDisplayed();
-    });
-
-    // it('Test 18: Displayed Best Casino Offers top block',  async () => {
-    //     const BestDealTop = await browser.$('.best-deals__left');
-    //     await expect(BestDealTop).toBeDisplayed();
+    // it('Test 16: Breadcrubs works', async () => {
+    //     const Breadcrubs = await browser.$('span > span:nth-child(3) > a');
+    //     await Breadcrubs.click();
+    //     await expect(browser).toHaveUrl('https://gamblizard.com/casinos/');
+    //     const pageOfSearch = await browser.$('div.casinos-tmp.casinos-tmp--js > div > h1');
+    //     await expect(pageOfSearch).toHaveText('Online Casino Index: UKGC Online Casinos Directory');
     // });
+
+    // it('Test 17: Deals available block',  async () => {
+    //     const Dealsavailable = await browser.$('body > section.firstscreen-casino > div > div > div.firstscreen-casino__info > p');
+    //     await expect(Dealsavailable).toBeDisplayed();
+    // });
+
+    it('Test 18: Displayed Сasino logo block',  async () => {
+        const Сasinologo = await browser.$('section.firstscreen-casino > div > div > div.firstscreen-casino__logo');
+        await expect(Сasinologo).toBeDisplayed();
+        const altLogo = $('document.querySelector("section.firstscreen-casino > div > div > div.firstscreen-casino__logo > img")');
+        expect(altLogo).toHaveAttr('alt')
+    });
+
+    it('Test 19: Displayed Casino sidebar',  async () => {
+        const Casinosidebar = await browser.$('section.casino-main > div > div.casino-sidebar');
+        await expect(Casinosidebar).toBeDisplayed();
+    });
+
+    it('Test 20: Redirect Visit Casino button',  async () => {
+        const VisitCasinoBtn = await browser.$('section.casino-main > div > div.casino-sidebar > a');
+        await VisitCasinoBtn.click();
+    });
+
+    it('Test 21: Displayed Casino sidebar author',  async () => {
+        const Casinosidebarauthor = await browser.$('section.casino-main > div > div.casino-sidebar > div.casino-sidebar__author');
+        await expect(Casinosidebarauthor).toBeDisplayed();
+    });
+
+    it('Test 22: Displayed Casino sidebar support',  async () => {
+        const Casinosidebarsupport = await browser.$('section.casino-main > div > div.casino-sidebar > table:nth-child(9)');
+        await expect(Casinosidebarsupport).toBeDisplayed();
+    });
 
     // it('Test 19: Works casino logo for Best Casino Offers top block',  async () => {
     //     const BestDealLogo = await browser.$('div.best-deals__left > div > div.card__top > a');
