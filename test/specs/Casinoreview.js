@@ -44,14 +44,14 @@ describe('Gamblizard For "Casino review page"', () => {
         expect(h1).toHaveAttribute('h1 class')
     });
 
-    it('Test 9: Logo redirection', async () => {
+    it('Test 8: Logo redirection', async () => {
         const logoredirection = await browser.$('body > header > div > div > a');
         await logoredirection.click();
         const logoredirectionUrlExp = await expect(browser);
         await logoredirectionUrlExp.toHaveUrl('https://gamblizard.com/');
     });
 
-    it('Test 10: Check Main menu', async () => {
+    it('Test 9: Check Main menu', async () => {
         const NoDepositBonuses = await $("/html/body/header/div/div/div/nav/ul/li[1]/a");
         expect(NoDepositBonuses).toHaveTextContaining('No Deposit Bonuses')
 
@@ -68,7 +68,7 @@ describe('Gamblizard For "Casino review page"', () => {
         expect(Slots).toHaveTextContaining('Slots')
     });
 
-    it('Test 11: No Deposit Bonuses redirect button in menu',  async () => {
+    it('Test 10: No Deposit Bonuses redirect button in menu',  async () => {
         const NoDepositBons = await browser.$('body > header > div > div > div > ul > li:nth-child(1) > a');
         await NoDepositBons.click();
         const NoDepositBonsSub = await browser.$('body > header > div > div > div > ul > li.menu__item.menu__item--children.menu__item--children-js.active > div > div.sub-menu__title > a');
@@ -77,7 +77,7 @@ describe('Gamblizard For "Casino review page"', () => {
         await expect(await browser.$('body > section.firstscreen-count > div > div > h1')).toHaveText('Latest No Deposit Casino Bonuses');
     });
 
-    it('Test 12: Tool in header NAV redirection of drop-down list',  async () => {
+    it('Test 11: Tool in header NAV redirection of drop-down list',  async () => {
         const NoDepositBons = await browser.$('body > header > div > div > div > ul > li:nth-child(1) > a');
         await NoDepositBons.click();
         const CouponCodes = await browser.$('body > header > div > div > div > ul > li.menu__item.menu__item--children.menu__item--children-js.active > div > div.sub-menu__inner > div:nth-child(1) > div > ul > li:nth-child(5) > a');
@@ -86,7 +86,7 @@ describe('Gamblizard For "Casino review page"', () => {
         await expect( await browser.$('body > section.firstscreen-count > div > div > h1')).toHaveText('The List of Newest No Deposit Casino Bonus Codes');
     });
 
-    it('Test 13: Search in the header NAV', async () =>  {
+    it('Test 12: Search in the header NAV', async () =>  {
         const searchInput = await browser.$('.search-form__input-js');
         // await browser.pause(3000);
         await searchInput.addValue('10bet casino');
@@ -99,7 +99,7 @@ describe('Gamblizard For "Casino review page"', () => {
         await expect(pageOfSearch).toHaveText('10bet Casino Bonus Promo Codes For UK Players');
     });
 
-    it('Test 14: Search in the firstscreen coupon', async () =>  {
+    it('Test 13: Search in the firstscreen coupon', async () =>  {
         const searchInput = await browser.$('.search-form__input-js');
         // await browser.pause(3000);
         await searchInput.addValue('coupon');
@@ -111,7 +111,7 @@ describe('Gamblizard For "Casino review page"', () => {
         await expect(browser).toHaveUrl('https://gamblizard.com/casinos/kitty-bingo-bonus/');
     });
 
-    it('Test 15: Empty results Search', async () =>  {
+    it('Test 14: Empty results Search', async () =>  {
         const searchInput = await browser.$('.search-form__input-js');
         await browser.pause(3000);
         await searchInput.addValue('testxbfb');
@@ -119,7 +119,7 @@ describe('Gamblizard For "Casino review page"', () => {
         await expect(searchEmptyResult).toBeDisplayed();
     });
 
-    it('Test 16: Breadcrubs works', async () => {
+    it('Test 15: Breadcrubs works', async () => {
         const Breadcrubs = await browser.$('span > span > span:nth-child(3) > a');
         await Breadcrubs.click();
         await expect(browser).toHaveUrl('https://gamblizard.com/casinos/');
@@ -127,44 +127,44 @@ describe('Gamblizard For "Casino review page"', () => {
         await expect(pageOfSearch).toHaveText('Online Casino Index: UKGC Online Casinos Directory');
     });
 
-    it('Test 17: Deals available block',  async () => {
+    it('Test 16: Deals available block',  async () => {
         const Dealsavailable = await browser.$('body > section.firstscreen-casino > div > div > div.firstscreen-casino__info > p');
         await expect(Dealsavailable).toBeDisplayed();
     });
 
-    it('Test 18: Displayed Сasino logo block',  async () => {
+    it('Test 17: Displayed Сasino logo block',  async () => {
         const Сasinologo = await browser.$('section.firstscreen-casino > div > div > div.firstscreen-casino__logo');
         await expect(Сasinologo).toBeDisplayed();
         const altLogo = $('document.querySelector("section.firstscreen-casino > div > div > div.firstscreen-casino__logo > img")');
         expect(altLogo).toHaveAttr('alt')
     });
 
-    it('Test 19: Displayed Casino sidebar',  async () => {
+    it('Test 18: Displayed Casino sidebar',  async () => {
         const Casinosidebar = await browser.$('section.casino-main > div > div.casino-sidebar');
         await expect(Casinosidebar).toBeDisplayed();
     });
 
-    it('Test 20: h2 Casino sidebar block',  async () => {
+    it('Test 19: h2 Casino sidebar block',  async () => {
         const CasinosidebarH2 = await browser.$('div > div.casino-sidebar > h2');
         await expect(CasinosidebarH2).toHaveText('About Magical Vegas');
     });
 
-    it('Test 21: Redirect Visit Casino button',  async () => {
+    it('Test 20: Redirect Visit Casino button',  async () => {
         const VisitCasinoBtn = await browser.$('section.casino-main > div > div.casino-sidebar > a');
         await VisitCasinoBtn.click();
     });
 
-    it('Test 22: Displayed Casino sidebar author',  async () => {
+    it('Test 21: Displayed Casino sidebar author',  async () => {
         const Casinosidebarauthor = await browser.$('section.casino-main > div > div.casino-sidebar > div.casino-sidebar__author');
         await expect(Casinosidebarauthor).toBeDisplayed();
     });
 
-    it('Test 23: Displayed Casino sidebar support',  async () => {
+    it('Test 22: Displayed Casino sidebar support',  async () => {
         const Casinosidebarsupport = await $('section.casino-main > div > div.casino-sidebar > table:nth-child(9)');
         await expect(Casinosidebarsupport).toBeDisplayed();
     });
 
-    it('Test 24: Work Coupons filter tab',  async () => {
+    it('Test 23: Work Coupons filter tab',  async () => {
         const AllDealstab = await $('div.casino-coupons > ul > li:nth-child(1)');
         await AllDealstab.click();
         const NoDeposittab = await $('div.casino-coupons > ul > li:nth-child(2)');
@@ -175,22 +175,22 @@ describe('Gamblizard For "Casino review page"', () => {
         await FreeSpinstab.click();
     });
 
-    it('Test 25: Redirect coupon title for Coupons filter tab',  async () => {
+    it('Test 24: Redirect coupon title for Coupons filter tab',  async () => {
         const RedirectCoponTitle = await $('div > div:nth-child(1) > div.casino-coupon__content > a');
         await RedirectCoponTitle.click();
     });
 
-    it('Test 26: Redirect Get Free Spins button for Coupons filter tab',  async () => {
+    it('Test 25: Redirect Get Free Spins button for Coupons filter tab',  async () => {
         const GetFreeSpinsBtn = await browser.$('div:nth-child(2) > div.casino-coupon__button > a');
         await GetFreeSpinsBtn.click();
     });
 
-    it('Test 27: Redirect Get Bonus button for Coupons filter tab',  async () => {
+    it('Test 26: Redirect Get Bonus button for Coupons filter tab',  async () => {
         const GetBonusBtn = await browser.$('div:nth-child(1) > div.casino-coupon__button > a');
         await GetBonusBtn.click();
     });
 
-    it('Test 28: Works casino logo for No Deposit tab',  async () => {
+    it('Test 27: Works casino logo for No Deposit tab',  async () => {
         const NoDeposittab = await $('div.casino-coupons > ul > li:nth-child(2)');
         await NoDeposittab.click();
         const NoDepositlogo = await browser.$('div:nth-child(1) > div.casino-coupon__logo > a');
@@ -199,24 +199,24 @@ describe('Gamblizard For "Casino review page"', () => {
         await NoDepositLogoUrl.toHaveUrl('https://gamblizard.com/casinos/mrq-casino-bonus/');
     });
 
-    it('Test 29: Works Show more buttons on Coupons filter tab',  async () => {
+    it('Test 28: Works Show more buttons on Coupons filter tab',  async () => {
         const ShowMoreexpand = await browser.$('div > div:nth-child(1) > div.casino-coupon__footer div.casino-coupon__desc.show-more-js > button');
         await ShowMoreexpand.click();
         const ShowMorecollapse = await browser.$('div > div:nth-child(1) > div.casino-coupon__footer > div.casino-coupon__desc.show-more-js.active > button');
         await ShowMorecollapse.click();
     });
 
-    it('Test 30: Displayed User Reviews Of Magical Vegas block',  async () => {
+    it('Test 29: Displayed User Reviews Of Magical Vegas block',  async () => {
         const Reviews = await browser.$('div.user-reviews > div > div');
         await expect(Reviews).toBeDisplayed();
     });
 
-    it('Test 31: Displayed Н3 for User Reviews Of Magical Vegas block',  async () => {
+    it('Test 30: Displayed Н3 for User Reviews Of Magical Vegas block',  async () => {
         const ReviewsH3 = await browser.$('div.user-reviews > div > h3');
         await expect(ReviewsH3).toHaveText('User Reviews Of Magical Vegas');
     });
 
-    it('Test 32: Check User Reviews Of Magical Vegas block', async  () => {
+    it('Test 31: Check User Reviews Of Magical Vegas block', async  () => {
         const YourNameinput = await $('div.user-reviews__wrap > form > input:nth-child(4)');
         await YourNameinput.addValue('Automation test name');
         const Emailinput = await $('div.user-reviews__wrap > form > input:nth-child(5)');
@@ -233,26 +233,26 @@ describe('Gamblizard For "Casino review page"', () => {
         await ClosetBtn.click();
     });
 
-    it('Test 33: Check Table of Content block', async () => {
+    it('Test 32: Check Table of Content block', async () => {
         const TocBlock  = await browser.$('section.content-rule.content-rule--front > div > div > label');
         await TocBlock.click();
         const TocTitle = await browser.$('div > div > div > ol > li:nth-child(1) > a');
         await TocTitle.click();
     });
 
-    it('Test 34: Check FAQ block',  async () => {
+    it('Test 33: Check FAQ block',  async () => {
         const faqquestion = await browser.$('section.faq > div > div > div:nth-child(3)');
         await faqquestion.click();
         const faqquestion2 = await browser.$('section.faq > div > div > div:nth-child(5)');
         await faqquestion2.click();
     });
 
-    it('Test 35: Check More Popular Casinos block and H2',  async () => {
+    it('Test 34: Check More Popular Casinos block and H2',  async () => {
         const MorePopularCasinos = await browser.$('div.popular-casinos__content.popular-casinos-slider-js.owl-carousel.owl-loaded.owl-drag');
         await expect(MorePopularCasinos).toBeDisplayed();
     });
 
-    it('Test 36: Check Subscribe block', async  () => {
+    it('Test 35: Check Subscribe block', async  () => {
         const SubscribeDesc = await $('div.subscribe__left > div > form > div.sign-up__item > input.sign-up__input.wpcf7-form-control.wpcf7-text.wpcf7-email.wpcf7-validates-as-required.wpcf7-validates-as-email');
         await SubscribeDesc.addValue('automationtest@gmail.com');
         const checkbox = await $('div.subscribe__left > div > form > div.sign-up__checkbox > div > label');
@@ -261,7 +261,7 @@ describe('Gamblizard For "Casino review page"', () => {
         await submitBtn.click();
     });
 
-    it('Test 40: Footer column BONUSES', async () => {
+    it('Test 36: Footer column BONUSES', async () => {
         const bonusName = await browser.$('body > footer > div.footer__top > div > div > div:nth-child(1) > nav > div > div > p');
         await expect(bonusName).toHaveText('BONUSES');
         const NoDepositBonus = await browser.$('body > footer > div.footer__top > div > div > div:nth-child(1) > nav > div > div > div > ul > li:nth-child(1) > a');
@@ -278,7 +278,7 @@ describe('Gamblizard For "Casino review page"', () => {
         assert.strictEqual(BestCasinoSitesUrl, '/best-uk-online-casinos/');
     });
 
-    it('Test 41: Footer column COMPANY', async () => {
+    it('Test 37: Footer column COMPANY', async () => {
         const conpanyName = await browser.$('body > footer > div.footer__top > div > div > div:nth-child(2) > nav > div > div > p');
         await expect(conpanyName).toHaveText('COMPANY');
         const GambLizardBlog = await browser.$('body > footer > div.footer__top > div > div > div:nth-child(2) > nav > div > div > div > ul > li:nth-child(1) > a');
@@ -295,7 +295,7 @@ describe('Gamblizard For "Casino review page"', () => {
         assert.strictEqual(ResponsibleGamblingUrl, '/responsible-gambling/');
     });
 
-    it('Test 43: Footer bottom links', async () => {
+    it('Test 38: Footer bottom links', async () => {
         const bottomLinks = await browser.$('body > footer > div.footer__top > div > div > div:nth-child(3) > div > div.footer__logos-left > p');
         await expect(bottomLinks).toBeDisplayed();
         const PrivacyPolicy = await browser.$('body > footer > div.footer__bottom > div > div > div.footer__links > div > div > div > p > a:nth-child(1)');
