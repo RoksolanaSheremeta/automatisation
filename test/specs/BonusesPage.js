@@ -228,7 +228,7 @@ describe('Gamblizard For "Bonuses page"', () => {
         await Paginationprev.click();
     });
 
-     it('Test 29: Displayed Subscribe block after pagination',  async () => {
+    it('Test 29: Displayed Subscribe block after pagination',  async () => {
         const Subscribe = await browser.$('body > div.container > section');
         await expect(Subscribe).toBeDisplayed();
     });
