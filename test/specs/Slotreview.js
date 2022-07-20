@@ -185,7 +185,7 @@ describe('Gamblizard For "Slots review page"', () => {
 
     it('Test 26: Displayed Basic Info for slot',  async () => {
         const BasicInfo = await $('div.basic-info > div > div > div:nth-child(1)');
-        await expect(RelatedSlots).toBeDisplayed();
+        await expect(BasicInfo).toBeDisplayed();
     });
 
     it('Test 27: Check Table of Content block', async () => {
