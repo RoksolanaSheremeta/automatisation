@@ -188,33 +188,45 @@ describe('Gamblizard For "Slots review page"', () => {
         await expect(BasicInfo).toBeDisplayed();
     });
 
-    it('Test 27: Check Table of Content block', async () => {
+    it('Test 27: Displayed Block [Slot Name] Symbols and Paytable',  async () => {
+        const SymbolsPaytable = await $('body > div.symbol');
+        await expect(SymbolsPaytable).toBeDisplayed();
+    });
+
+    it('Test 28: Check img for Block [Slot Name] Symbols and Paytable',  async () => {
+        const ImgSymbolsPaytable = await $('div > div:nth-child(1) > div.symbol__img > img');
+        await expect(ImgSymbolsPaytable).toBeDisplayed();
+        const altImg = $('document.querySelector("div > div:nth-child(1) > div.symbol__img > img)');
+        expect(altImg).toHaveAttr('alt')
+    });
+
+    it('Test 29: Check Table of Content block', async () => {
         const TocBlock  = await $('section.content-rule.content-rule--front > div > div > label');
         await TocBlock.click();
         const TocTitle = await $('section.content-rule.content-rule--front > div > div > div > ol > li:nth-child(5) > a');
         await TocTitle.click();
     });
 
-    it('Test 28: Check Related Slots block',  async () => {
+    it('Test 30: Check Related Slots block',  async () => {
         const RelatedSlots = await $('div.related-slots > div > div');
         await expect(RelatedSlots).toBeDisplayed();
     });
     
-    it('Test 29: Displayed Subscribe block',  async () => {
+    it('Test 31: Displayed Subscribe block',  async () => {
         const Subscribe = await $('body > section.subscribe');
         await expect(Subscribe).toBeDisplayed();
     });
 
-    // it('Test 30: Check Subscribe block', async  () => {
-    //     const SubscribeDesc = await $('div.subscribe__left > div > form > div.sign-up__item > input.sign-up__input.wpcf7-form-control.wpcf7-text.wpcf7-email.wpcf7-validates-as-required.wpcf7-validates-as-email');
-    //     await SubscribeDesc.addValue('automationtest@gmail.com');
-    //     const checkbox = await $('div.subscribe__left > div > form > div.sign-up__checkbox > div > label');
-    //     await checkbox.click();
-    //     const submitBtn = await $('div.subscribe__left > div > form > div.sign-up__item > button');
-    //     await submitBtn.click();
-    // });
+    it('Test 32: Check Subscribe block', async  () => {
+        const SubscribeDesc = await $('div.subscribe__left > div > form > div.sign-up__item > input.sign-up__input.wpcf7-form-control.wpcf7-text.wpcf7-email.wpcf7-validates-as-required.wpcf7-validates-as-email');
+        await SubscribeDesc.addValue('automationtest@gmail.com');
+        const checkbox = await $('div.subscribe__left > div > form > div.sign-up__checkbox > div > label');
+        await checkbox.click();
+        const submitBtn = await $('div.subscribe__left > div > form > div.sign-up__item > button');
+        await submitBtn.click();
+    });
 
-    it('Test 31: Footer column BONUSES', async () => {
+    it('Test 33: Footer column BONUSES', async () => {
         const bonusName = await $('body > footer > div.footer__top > div > div > div:nth-child(1) > nav > div > div > p');
         await expect(bonusName).toHaveText('BONUSES');
         const NoDepositBonus = await $('body > footer > div.footer__top > div > div > div:nth-child(1) > nav > div > div > div > ul > li:nth-child(1) > a');
@@ -231,7 +243,7 @@ describe('Gamblizard For "Slots review page"', () => {
         assert.strictEqual(BestCasinoSitesUrl, '/best-uk-online-casinos/');
     });
 
-    it('Test 32: Footer column COMPANY', async () => {
+    it('Test 34: Footer column COMPANY', async () => {
         const conpanyName = await $('body > footer > div.footer__top > div > div > div:nth-child(2) > nav > div > div > p');
         await expect(conpanyName).toHaveText('COMPANY');
         const GambLizardBlog = await $('body > footer > div.footer__top > div > div > div:nth-child(2) > nav > div > div > div > ul > li:nth-child(1) > a');
@@ -248,7 +260,7 @@ describe('Gamblizard For "Slots review page"', () => {
         assert.strictEqual(ResponsibleGamblingUrl, '/responsible-gambling/');
     });
 
-    it('Test 33: Footer bottom links', async () => {
+    it('Test 35: Footer bottom links', async () => {
         const bottomLinks = await $('body > footer > div.footer__top > div > div > div:nth-child(3) > div > div.footer__logos-left > p');
         await expect(bottomLinks).toBeDisplayed();
         const PrivacyPolicy = await $('body > footer > div.footer__bottom > div > div > div.footer__links > div > div > div > p > a:nth-child(1)');
