@@ -141,13 +141,25 @@ describe('Gamblizard For "About us page"', () => {
         const MeetOurTeam = await browser.$('div > div.about__team-author');
         await expect(MeetOurTeam).toBeDisplayed();
     });
+
+    it('Test 19: Displayed Testimonials block',  async () => {
+        const Testimonials = await browser.$('#Team > div > div.about__partners');
+        await expect(Testimonials).toBeDisplayed();
+    });
+
+    it('Test 20: Check logo for Displayed Testimonials block',  async () => {
+        const Testimonialslogo = await browser.$('div > div > div:nth-child(1) > ul > li:nth-child(1) > a > img');
+        await Testimonialslogo.click();
+        await expect(browser).toHaveUrl('https://gamblizard.com/casinos/bonus-boss-bonus/');
+        await expect(await browser.$('div > div > div.firstscreen-casino__info > h1')).toHaveText('Bonus Boss Casino Bonuses');
+    });
     
-    it('Test 19: Displayed Subscribe block',  async () => {
+    it('Test 21: Displayed Subscribe block',  async () => {
         const Subscribe = await $('body > section.subscribe');
         await expect(Subscribe).toBeDisplayed();
     });
 
-    // it('Test 20: Check Subscribe block', async  () => {
+    // it('Test 22: Check Subscribe block', async  () => {
     //     const SubscribeDesc = await $('div.subscribe__left > div > form > div.sign-up__item > input.sign-up__input.wpcf7-form-control.wpcf7-text.wpcf7-email.wpcf7-validates-as-required.wpcf7-validates-as-email');
     //     await SubscribeDesc.addValue('automationtest@gmail.com');
     //     const checkbox = await $('div.subscribe__left > div > form > div.sign-up__checkbox > div > label');
@@ -156,7 +168,7 @@ describe('Gamblizard For "About us page"', () => {
     //     await submitBtn.click();
     // });
 
-    it('Test 21: Footer column BONUSES', async () => {
+    it('Test 23: Footer column BONUSES', async () => {
         const bonusName = await $('body > footer > div.footer__top > div > div > div:nth-child(1) > nav > div > div > p');
         await expect(bonusName).toHaveText('BONUSES');
         const NoDepositBonus = await $('body > footer > div.footer__top > div > div > div:nth-child(1) > nav > div > div > div > ul > li:nth-child(1) > a');
@@ -173,7 +185,7 @@ describe('Gamblizard For "About us page"', () => {
         assert.strictEqual(BestCasinoSitesUrl, '/best-uk-online-casinos/');
     });
 
-    it('Test 22: Footer column COMPANY', async () => {
+    it('Test 24: Footer column COMPANY', async () => {
         const conpanyName = await $('body > footer > div.footer__top > div > div > div:nth-child(2) > nav > div > div > p');
         await expect(conpanyName).toHaveText('COMPANY');
         const GambLizardBlog = await $('body > footer > div.footer__top > div > div > div:nth-child(2) > nav > div > div > div > ul > li:nth-child(1) > a');
@@ -190,7 +202,7 @@ describe('Gamblizard For "About us page"', () => {
         assert.strictEqual(ResponsibleGamblingUrl, '/responsible-gambling/');
     });
 
-    it('Test 23: Footer bottom links', async () => {
+    it('Test 25: Footer bottom links', async () => {
         const bottomLinks = await $('body > footer > div.footer__top > div > div > div:nth-child(3) > div > div.footer__logos-left > p');
         await expect(bottomLinks).toBeDisplayed();
         const PrivacyPolicy = await $('body > footer > div.footer__bottom > div > div > div.footer__links > div > div > div > p > a:nth-child(1)');
