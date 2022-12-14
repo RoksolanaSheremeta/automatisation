@@ -10,7 +10,7 @@ describe('Gamblizard For "Main page"', () => {
 
     it('Test 1: Check to Have Title', async () => {
         await browser.getTitle();
-        await expect(browser).toHaveTitle('GambLizard - Best Offers from UK Casino Bonus Sites in June 2022');
+        await expect(browser).toHaveTitle('GambLizard - Best Offers from UK Casino Bonus Sites in December 2022');
     });
 
     it('Test 2: Canonical',async () => {
@@ -147,7 +147,7 @@ describe('Gamblizard For "Main page"', () => {
 
     it('Test 17: h2 Best Casino Offers block',  async () => {
         const BestDealsH2 = await browser.$('.best-deals__left > h2');
-        await expect(BestDealsH2).toHaveText('Best Casino Offers');
+        await expect(BestDealsH2).toHaveText('Top UK Casino Bonus Sites — Best Offers in 2022');
     });
 
     it('Test 18: Displayed Best Casino Offers top block',  async () => {
@@ -159,7 +159,7 @@ describe('Gamblizard For "Main page"', () => {
         const BestDealLogo = await browser.$('div.best-deals__left > div > div.card__top > a');
         await BestDealLogo.click();
         const BestDealLogoUrl = await expect(browser);
-        await BestDealLogoUrl.toHaveUrl('https://gamblizard.com/casinos/pokerstars-casino-bonus/');
+        await BestDealLogoUrl.toHaveUrl('https://gamblizard.com/casinos/kwiff-casino-bonus/');
     });
 
     it('Test 20: Redirect coupon title for Best Casino Offers top block',  async () => {
@@ -179,7 +179,7 @@ describe('Gamblizard For "Main page"', () => {
         const DealsCasinoLogo = await browser.$('.best-deals__block.tab-content-js.active > div:nth-child(1) > div.coupon__logo > a');
         await DealsCasinoLogo.click();
         const DealsCasinoLogoUrl = await expect(browser);
-        await DealsCasinoLogoUrl.toHaveUrl('https://gamblizard.com/casinos/jeffbet-casino-bonus/');
+        await DealsCasinoLogoUrl.toHaveUrl('https://gamblizard.com/casinos/highbet-casino-bonus/');
     });
 
     it('Test 23: Work Deals of the day tab',  async () => {
@@ -251,6 +251,9 @@ describe('Gamblizard For "Main page"', () => {
         await Selectgame.click();
         const SelectgameRoulette = await browser.$('form > div:nth-child(3) > div > ul > li:nth-child(2)');
         await SelectgameRoulette.click();
+        //const radioButton = await $$(".find-bonus-device-js")
+        //const userDropdown = radioButton[1]
+        //await userDropdown.click()
         const Typeofbonus = await browser.$('div.find-bonus__search.find-bonus__search-js > form > div:nth-child(5) > div');
         await Typeofbonus.click();
         const TypeoNo1stDeposit = await browser.$('form > div:nth-child(5) > div > ul > li:nth-child(2)');
@@ -301,7 +304,7 @@ describe('Gamblizard For "Main page"', () => {
         const BonusesCasinoLogo = await browser.$('body > main > section.bonuses > div > div > div.bonuses__right > div > div > div.bonuses__block.tab-content-js.active > div:nth-child(1) > div.coupon__logo > a');
         await BonusesCasinoLogo.click();
         const BonusesCasinoLogoUrl = await expect(browser);
-        await BonusesCasinoLogoUrl.toHaveUrl('https://gamblizard.com/casinos/all-british-casino-bonus/');
+        await BonusesCasinoLogoUrl.toHaveUrl('https://gamblizard.com/casinos/bluefox-casino-bonus/');
     });
 
     it('Test 38: Top Casino Bonuses block click on coupon title', async () => {
