@@ -441,6 +441,20 @@ describe('Gamblizard For "Main page"', () => {
         assert.strictEqual(CookiesPolicyUrl, '/cookies-policy/');
     });
 
+    // it('Test 000: Search in the firstscreen', async () =>  {
+    //     await browser.url('https://gamblizard.com/');
+    //     await $(".search-form__input-js").setValue("coupon")
+    //     await browser.pause(3000)
+    //     let items = await $$("[class='result-content__link'] p")
+    //     for(var i=0; i< await items.lenght; i++)
+    //         {
+    //             if(await items[i].toHaveAttr() === "Sign Up Offer for You -  Deposit £5 Receive £25 Bingo Bonus with Coupon Code")
+    //             {
+    //                 await items[i].click
+    //             }
+    //         }
+    // });
+
     // it('Test 000: Top Casino Bonuses block click on Get Bonus button', async () => {
     //     const GetBonusbtn = await browser.$('body > main > section.best-deals > div > div > div.best-deals__right > div > div > div.best-deals__block.tab-content-js.active > div:nth-child(2) > div.coupon__content > div.coupon__button > a');
     //     await GetBonusbtn.click()
