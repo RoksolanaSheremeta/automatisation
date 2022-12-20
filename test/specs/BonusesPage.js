@@ -180,7 +180,7 @@ describe('Gamblizard For "Bonuses page"', () => {
 
     it('Test 21: Search in the firstscreen', async () =>  {
         await browser.url('https://gamblizard.com/free-spins/bonus-codes-free-spins/')
-        await browser.$(".filter-casino__content-select-js").click()
+        await browser.$(".filter-casino__content-select-js").moveTo()
         await $("input[class='filter-casino__content-search-js']").setValue("21")
         await browser.pause(3000)
         //let items = await $$("[class='filter-casino__content-list scroll-block'] li")
