@@ -1,7 +1,5 @@
 const assert = require('assert');
 
-
-
 describe('Gamblizard For "404 page"', () => {
     beforeEach( async function  () {
         await browser.url('https://gamblizard.com/no-deposxfb/');
@@ -76,47 +74,12 @@ describe('Gamblizard For "404 page"', () => {
         await expect( await browser.$('body > section.firstscreen-count > div > div > h1')).toHaveText('The List of Newest No Deposit Casino Bonus Codes');
     });
 
-    it('Test 10: Search in the header NAV', async () =>  {
-        const searchInput = await browser.$('.search-form__input-js');
-        // await browser.pause(3000);
-        await searchInput.addValue('10bet casino');
-        const searchInputResult = await browser.$('.search-form__result-wrap.tab-block-js > div > div > a > p');
-        await expect(searchInputResult).toHaveText('10bet Casino');
-        const searchcontentlink = await browser.$('div.search-form__result > div.search-form__result-wrap.tab-block-js > div > div > a');
-        await searchcontentlink.click();
-        await expect(browser).toHaveUrl('https://gamblizard.com/casinos/10bet-casino-bonus/');
-        const pageOfSearch = await browser.$('body > section.firstscreen-casino > div > div > div.firstscreen-casino__info > h1');
-        await expect(pageOfSearch).toHaveText('10bet Casino Bonus Promo Codes For UK Players');
-    });
-
-    it('Test 11: Search in the firstscreen coupon', async () =>  {
-        const searchInput = await browser.$('.search-form__input-js');
-        // await browser.pause(3000);
-        await searchInput.addValue('coupon');
-        const searchInputResult = await browser.$('.result-content__block-js > a:nth-child(1)');
-        await searchInputResult.waitForDisplayed({ timeout: 10000 });
-        await expect(searchInputResult).toHaveText('Sign Up Offer for You - Deposit £5 Receive £25 Bingo Bonus with Coupon Code');
-        const searchcontentlink = await browser.$('body > header > div > div > div.header__form > form > div.search-form__result > div.search-form__result-wrap.tab-block-js > div > div > a:nth-child(1)');
-        await searchcontentlink.click();
-        await expect(browser).toHaveUrl('https://gamblizard.com/casinos/kitty-bingo-bonus/');
-        const pageOfSearch2 = await browser.$('body > section.firstscreen-casino > div > div > div.firstscreen-casino__info > h1');
-        await expect(pageOfSearch2).toHaveText('Latest Kitty Bingo Bonus Codes in 2022');
-    });
-
-    it('Test 12: Empty results Search', async () =>  {
-        const searchInput = await browser.$('.search-form__input-js');
-        await browser.pause(3000);
-        await searchInput.addValue('testxbfb');
-        const searchEmptyResult = await browser.$('div.search-form__result.empty > div.search-form__empty');
-        await expect(searchEmptyResult).toBeDisplayed();
-    });
-
-    it('Test 13: Works casino bonuses button',  async () => {
+    it('Test 10: Works casino bonuses button',  async () => {
         const CasinoBonusesBtn = await browser.$('div.container_404_page_bg > div > p > a');
         await CasinoBonusesBtn.click();
     });
 
-    it('Test 14 Footer column BONUSES', async () => {
+    it('Test 11: Footer column BONUSES', async () => {
         const bonusName = await $('body > footer > div.footer__top > div > div > div:nth-child(1) > nav > div > div > p');
         await expect(bonusName).toHaveText('BONUSES');
         const NoDepositBonus = await $('body > footer > div.footer__top > div > div > div:nth-child(1) > nav > div > div > div > ul > li:nth-child(1) > a');
@@ -133,7 +96,7 @@ describe('Gamblizard For "404 page"', () => {
         assert.strictEqual(BestCasinoSitesUrl, '/best-uk-online-casinos/');
     });
 
-    it('Test 15: Footer column COMPANY', async () => {
+    it('Test 12: Footer column COMPANY', async () => {
         const conpanyName = await $('body > footer > div.footer__top > div > div > div:nth-child(2) > nav > div > div > p');
         await expect(conpanyName).toHaveText('COMPANY');
         const GambLizardBlog = await $('body > footer > div.footer__top > div > div > div:nth-child(2) > nav > div > div > div > ul > li:nth-child(1) > a');
@@ -150,7 +113,7 @@ describe('Gamblizard For "404 page"', () => {
         assert.strictEqual(ResponsibleGamblingUrl, '/responsible-gambling/');
     });
 
-    it('Test 16: Footer bottom links', async () => {
+    it('Test 13: Footer bottom links', async () => {
         const bottomLinks = await $('body > footer > div.footer__top > div > div > div:nth-child(3) > div > div.footer__logos-left > p');
         await expect(bottomLinks).toBeDisplayed();
         const PrivacyPolicy = await $('body > footer > div.footer__bottom > div > div > div.footer__links > div > div > div > p > a:nth-child(1)');
