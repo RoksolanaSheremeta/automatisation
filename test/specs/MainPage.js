@@ -311,68 +311,6 @@ describe('Gamblizard For "Main page"', () => {
         await submitBtn.click();
     });
 
-    it('Test 41: Footer column BONUSES', async () => {
-        const bonusName = await browser.$('body > footer > div.footer__top > div > div > div:nth-child(1) > nav > div > div > p');
-        await expect(bonusName).toHaveText('BONUSES');
-        const NoDepositBonus = await browser.$('body > footer > div.footer__top > div > div > div:nth-child(1) > nav > div > div > div > ul > li:nth-child(1) > a');
-        const NoDepositBonusUrl = await NoDepositBonus.getAttribute('href');
-        assert.strictEqual(NoDepositBonusUrl, '/no-deposit-bonuses/');
-        const freespins = await browser.$('body > footer > div.footer__top > div > div > div:nth-child(1) > nav > div > div > div > ul > li:nth-child(2) > a');
-        const freespinsUrl = await freespins.getAttribute('href');
-        assert.strictEqual(freespinsUrl, '/free-spins/');
-        const DepositBonuses = await browser.$('body > footer > div.footer__top > div > div > div:nth-child(1) > nav > div > div > div > ul > li:nth-child(3) > a');
-        const DepositBonusesUrl = await DepositBonuses.getAttribute('href');
-        assert.strictEqual(DepositBonusesUrl, '/deposit-bonuses/');
-        const BestCasinoSites = await browser.$('body > footer > div.footer__top > div > div > div:nth-child(1) > nav > div > div > div > ul > li:nth-child(5) > a');
-        const BestCasinoSitesUrl = await BestCasinoSites.getAttribute('href');
-        assert.strictEqual(BestCasinoSitesUrl, '/best-uk-online-casinos/');
-    });
-
-    it('Test 42: Footer column COMPANY', async () => {
-        const conpanyName = await browser.$('body > footer > div.footer__top > div > div > div:nth-child(2) > nav > div > div > p');
-        await expect(conpanyName).toHaveText('COMPANY');
-        const GambLizardBlog = await browser.$('body > footer > div.footer__top > div > div > div:nth-child(2) > nav > div > div > div > ul > li:nth-child(1) > a');
-        const GambLizardBlogUrl = await GambLizardBlog.getAttribute('href');
-        assert.strictEqual(GambLizardBlogUrl, '/blog/');
-        const AboutUs = await browser.$('body > footer > div.footer__top > div > div > div:nth-child(2) > nav > div > div > div > ul > li:nth-child(2) > a');
-        const AboutUsUrl = await AboutUs.getAttribute('href');
-        assert.strictEqual(AboutUsUrl, '/about-us/');
-        const ContactUs = await browser.$('body > footer > div.footer__top > div > div > div:nth-child(2) > nav > div > div > div > ul > li:nth-child(3) > a');
-        const ContactUsUrl = await ContactUs.getAttribute('href');
-        assert.strictEqual(ContactUsUrl, '/contact-us/');
-        const ResponsibleGambling = await browser.$('body > footer > div.footer__top > div > div > div:nth-child(2) > nav > div > div > div > ul > li:nth-child(4) > a');
-        const ResponsibleGamblingUrl = await ResponsibleGambling.getAttribute('href');
-        assert.strictEqual(ResponsibleGamblingUrl, '/responsible-gambling/');
-    });
-
-    it('Test 43: Footer column PLEASE GAMBLE RESPONSIBLY', async () => {
-        const gambleResponsibly = await browser.$('body > footer > div.footer__top > div > div > div:nth-child(3) > div > div.footer__logos-left > p');
-        await expect(gambleResponsibly).toHaveText('PLEASE GAMBLE RESPONSIBLY');
-        const badgeDMCA = await browser.$('body > footer > div.footer__top > div > div > div:nth-child(3) > div > div.footer__logos-left > a.dmca-badge');
-        const badgeDMCAUrl = await badgeDMCA.getAttribute('href');
-        assert.strictEqual(badgeDMCAUrl, 'https://www.dmca.com/Protection/Status.aspx?ID=ba447f08-9e63-4ec0-84ea-6fcc1b903e60&refurl=https://gamblizard.com/');
-        const gambleaware = await browser.$('body > footer > div.footer__top > div > div > div:nth-child(3) > div > div.footer__logos-left > a.gambleaware');
-        const gambleawareUrl = await gambleaware.getAttribute('href');
-        assert.strictEqual(gambleawareUrl, 'https://about.gambleaware.org');
-        const gamstop = await browser.$('body > footer > div.footer__top > div > div > div:nth-child(3) > div > div.footer__logos-right > a.footer__icon-link.gamstop');
-        const gamstopUrl = await gamstop.getAttribute('href');
-        assert.strictEqual(gamstopUrl, 'https://www.gamstop.co.uk/');
-    });
-
-    it('Test 44: Footer bottom links', async () => {
-        const bottomLinks = await browser.$('body > footer > div.footer__top > div > div > div:nth-child(3) > div > div.footer__logos-left > p');
-        await expect(bottomLinks).toBeDisplayed();
-        const PrivacyPolicy = await browser.$('body > footer > div.footer__bottom > div > div > div.footer__links > div > div > div > p > a:nth-child(1)');
-        const PrivacyPolicyUrl = await PrivacyPolicy.getAttribute('href');
-        assert.strictEqual(PrivacyPolicyUrl, '/privacy-policy/');
-        const TermsConditions = await browser.$('body > footer > div.footer__bottom > div > div > div.footer__links > div > div > div > p > a:nth-child(2)');
-        const TermsConditionsUrl = await TermsConditions.getAttribute('href');
-        assert.strictEqual(TermsConditionsUrl, '/terms/');
-        const CookiesPolicy = await browser.$('body > footer > div.footer__bottom > div > div > div.footer__links > div > div > div > p > a:nth-child(3)');
-        const CookiesPolicyUrl = await CookiesPolicy.getAttribute('href');
-        assert.strictEqual(CookiesPolicyUrl, '/cookies-policy/');
-    });
-
     // it('Test 000: Search in the firstscreen', async () =>  {
     //     await browser.url('https://gamblizard.com/');
     //     await $(".search-form__input-js").setValue("coupon")
