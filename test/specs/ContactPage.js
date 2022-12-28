@@ -51,53 +51,18 @@ describe('Gamblizard For "Contact page"', () => {
         await logoredirectionUrlExp.toHaveUrl('https://gamblizard.com/');
     });
 
-    it('Test 9: Check Main menu', async () => {
-        const NoDepositBonuses = await $("/html/body/header/div/div/div/nav/ul/li[1]/a");
-        expect(NoDepositBonuses).toHaveTextContaining('No Deposit Bonuses')
-
-        const FreeSpins = await $('/html/body/header/div/div/div/nav/ul/li[2]/a');
-        expect(FreeSpins).toHaveTextContaining('Free Spins')
-
-        const DepositBonuses = await $('/html/body/header/div/div/div/nav/ul/li[3]/a');
-        expect(DepositBonuses).toHaveTextContaining('Deposit Bonuses')
-
-        const QualityCasinos = await $('/html/body/header/div/div/div/nav/ul/li[4]/a');
-        expect(QualityCasinos).toHaveTextContaining('Quality Casinos')
-
-        const Slots = await $('/html/body/header/div/div/div/nav/ul/li[5]/a');
-        expect(Slots).toHaveTextContaining('Slots')
-    });
-
-    it('Test 10: No Deposit Bonuses redirect button in menu',  async () => {
-        const NoDepositBons = await browser.$('body > header > div > div > div > ul > li:nth-child(1) > a');
-        await NoDepositBons.click();
-        const NoDepositBonsSub = await browser.$('body > header > div > div > div > ul > li.menu__item.menu__item--children.menu__item--children-js.active > div > div.sub-menu__title > a');
-        await NoDepositBonsSub.click();
-        await expect(browser).toHaveUrl('https://gamblizard.com/no-deposit-bonuses/');
-        await expect(await browser.$('body > section.firstscreen-count > div > div > h1')).toHaveText('Latest No Deposit Casino Bonuses');
-    });
-
-   it('Test 11: Tool in header NAV redirection of drop-down list',  async () => {
-        const NoDepositBons = await browser.$('body > header > div > div > div > ul > li:nth-child(1) > a');
-        await NoDepositBons.click();
-        const CouponCodes = await browser.$('body > header > div > div > div > ul > li.menu__item.menu__item--children.menu__item--children-js.active > div > div.sub-menu__inner > div:nth-child(1) > div > ul > li:nth-child(5) > a');
-        await CouponCodes.click();
-        await expect(browser).toHaveUrl('https://gamblizard.com/no-deposit-bonuses/bonus-codes/');
-        await expect( await browser.$('body > section.firstscreen-count > div > div > h1')).toHaveText('The List of Newest No Deposit Casino Bonus Codes');
-    });
-
-    it('Test 12: Breadcrubs works', async () => {
+    it('Test 9: Breadcrubs works', async () => {
         const Breadcrubs = await $('#breadcrumbs > span > span > a');
         await Breadcrubs.click();
         await expect(browser).toHaveUrl('https://gamblizard.com/');
     });
 
-    it('Test 13: Displayed Contact us block',  async () => {
+    it('Test 10: Displayed Contact us block',  async () => {
         const Contactusblock = await browser.$('div.contact > div > div');
         await expect(Contactusblock).toBeDisplayed();
     });
 
-    it('Test 14: Check Subscribe block', async  () => {
+    it('Test 11: Check Subscribe block', async  () => {
         const SubscribeName = await $('#name');
         await SubscribeName.addValue('Autotest name');
         const SubscribeEmail = await $('#email');
@@ -111,17 +76,17 @@ describe('Gamblizard For "Contact page"', () => {
         await CloseBtn.click();
     });
 
-    it('Test 15: Displayed Verified Casino Bonuses block',  async () => {
+    it('Test 12: Displayed Verified Casino Bonuses block',  async () => {
         const Verifiedblock = await browser.$('div.popular-codes__slider.popular-codes__slider-js.owl-carousel.owl-loaded.owl-drag > div.owl-stage-outer');
         await expect(Verifiedblock).toBeDisplayed();
     });
 
-    it('Test 16: Displayed Subscribe block',  async () => {
+    it('Test 13: Displayed Subscribe block',  async () => {
         const Subscribe = await $('body > section.subscribe');
         await expect(Subscribe).toBeDisplayed();
     });
 
-    // it('Test 17: Check Subscribe block', async  () => {
+    // it('Test 14: Check Subscribe block', async  () => {
     //     const SubscribeDesc = await $('div.subscribe__left > div > form > div.sign-up__item > input.sign-up__input.wpcf7-form-control.wpcf7-text.wpcf7-email.wpcf7-validates-as-required.wpcf7-validates-as-email');
     //     await SubscribeDesc.addValue('automationtest@gmail.com');
     //     const checkbox = await $('div.subscribe__left > div > form > div.sign-up__checkbox > div > label');
@@ -129,52 +94,4 @@ describe('Gamblizard For "Contact page"', () => {
     //     const submitBtn = await $('div.subscribe__left > div > form > div.sign-up__item > button');
     //     await submitBtn.click();
     // });
-
-    it('Test 18: Footer column BONUSES', async () => {
-        const bonusName = await $('body > footer > div.footer__top > div > div > div:nth-child(1) > nav > div > div > p');
-        await expect(bonusName).toHaveText('BONUSES');
-        const NoDepositBonus = await $('body > footer > div.footer__top > div > div > div:nth-child(1) > nav > div > div > div > ul > li:nth-child(1) > a');
-        const NoDepositBonusUrl = await NoDepositBonus.getAttribute('href');
-        assert.strictEqual(NoDepositBonusUrl, '/no-deposit-bonuses/');
-        const freespins = await $('body > footer > div.footer__top > div > div > div:nth-child(1) > nav > div > div > div > ul > li:nth-child(2) > a');
-        const freespinsUrl = await freespins.getAttribute('href');
-        assert.strictEqual(freespinsUrl, '/free-spins/');
-        const DepositBonuses = await $('body > footer > div.footer__top > div > div > div:nth-child(1) > nav > div > div > div > ul > li:nth-child(3) > a');
-        const DepositBonusesUrl = await DepositBonuses.getAttribute('href');
-        assert.strictEqual(DepositBonusesUrl, '/deposit-bonuses/');
-        const BestCasinoSites = await $('body > footer > div.footer__top > div > div > div:nth-child(1) > nav > div > div > div > ul > li:nth-child(5) > a');
-        const BestCasinoSitesUrl = await BestCasinoSites.getAttribute('href');
-        assert.strictEqual(BestCasinoSitesUrl, '/best-uk-online-casinos/');
-    });
-
-    it('Test 19: Footer column COMPANY', async () => {
-        const conpanyName = await $('body > footer > div.footer__top > div > div > div:nth-child(2) > nav > div > div > p');
-        await expect(conpanyName).toHaveText('COMPANY');
-        const GambLizardBlog = await $('body > footer > div.footer__top > div > div > div:nth-child(2) > nav > div > div > div > ul > li:nth-child(1) > a');
-        const GambLizardBlogUrl = await GambLizardBlog.getAttribute('href');
-        assert.strictEqual(GambLizardBlogUrl, '/blog/');
-        const AboutUs = await $('body > footer > div.footer__top > div > div > div:nth-child(2) > nav > div > div > div > ul > li:nth-child(2) > a');
-        const AboutUsUrl = await AboutUs.getAttribute('href');
-        assert.strictEqual(AboutUsUrl, '/about-us/');
-        const ContactUs = await $('body > footer > div.footer__top > div > div > div:nth-child(2) > nav > div > div > div > ul > li:nth-child(3) > a');
-        const ContactUsUrl = await ContactUs.getAttribute('href');
-        assert.strictEqual(ContactUsUrl, '/contact-us/');
-        const ResponsibleGambling = await $('body > footer > div.footer__top > div > div > div:nth-child(2) > nav > div > div > div > ul > li:nth-child(4) > a');
-        const ResponsibleGamblingUrl = await ResponsibleGambling.getAttribute('href');
-        assert.strictEqual(ResponsibleGamblingUrl, '/responsible-gambling/');
-    });
-
-    it('Test 20: Footer bottom links', async () => {
-        const bottomLinks = await $('body > footer > div.footer__top > div > div > div:nth-child(3) > div > div.footer__logos-left > p');
-        await expect(bottomLinks).toBeDisplayed();
-        const PrivacyPolicy = await $('body > footer > div.footer__bottom > div > div > div.footer__links > div > div > div > p > a:nth-child(1)');
-        const PrivacyPolicyUrl = await PrivacyPolicy.getAttribute('href');
-        assert.strictEqual(PrivacyPolicyUrl, '/privacy-policy/');
-        const TermsConditions = await $('body > footer > div.footer__bottom > div > div > div.footer__links > div > div > div > p > a:nth-child(2)');
-        const TermsConditionsUrl = await TermsConditions.getAttribute('href');
-        assert.strictEqual(TermsConditionsUrl, '/terms/');
-        const CookiesPolicy = await $('body > footer > div.footer__bottom > div > div > div.footer__links > div > div > div > p > a:nth-child(3)');
-        const CookiesPolicyUrl = await CookiesPolicy.getAttribute('href');
-        assert.strictEqual(CookiesPolicyUrl, '/cookies-policy/');
-    });
 });
